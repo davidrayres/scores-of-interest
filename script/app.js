@@ -170,7 +170,16 @@ const constructScores = async () => {
   NFLdata.calendar = await getNflCalendar()
   NFLdata.games = await getNFLGames()
   console.log('NFLdata', NFLdata)
+
   loadNflGames(NFLdata.calendar, NFLdata.games)
+
+  const weekButtons = document.querySelectorAll('.week-nav')
+  weekButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      document.querySelector('.current').classList.remove('current')
+      button.classList.add('current')
+    })
+  })
 }
 
 constructScores()

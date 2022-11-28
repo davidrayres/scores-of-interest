@@ -16,7 +16,6 @@
   border-radius: 20px;
   cursor: pointer;
 }
-
 .week-nav:hover {
   background-color: var(--smokeyGrayFaded)
 }
@@ -24,6 +23,10 @@
   background-color: black;
   color: white;
   transform: scale(0.9);
+}
+.week-nav.current {
+  background: var(--smokeyGray);
+  color: white;
 }
 
 
@@ -76,10 +79,6 @@ table {
   padding: 1rem;
   margin: 0.5rem;
   max-width: 330px;
-}
-.game-pod tr {
-  /* height: 2rem; */
-  /* margin-bottom: 1rem; */
 }
 
 .game-pod th {
