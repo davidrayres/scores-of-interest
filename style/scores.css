@@ -1,0 +1,164 @@
+#WeeklyScoreNav {
+  display: flex;
+  justify-content: center;
+  font-weight: initial;
+  margin: 1rem 0;
+}
+
+.week-nav {
+  font-size: .8rem;
+  margin: 0 .25rem;
+  text-align: center;
+  padding-top: .4rem;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--smokeyGray);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.week-nav:hover {
+  background-color: var(--smokeyGrayFaded)
+}
+.week-nav:active {
+  background-color: black;
+  color: white;
+  transform: scale(0.9);
+}
+
+
+
+table {
+  border-collapse: initial;
+}
+
+#Scores {
+  width: 80%;
+  margin: auto;
+  background: rgb(240, 240, 240);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+#ScoresNote {
+  text-align: center;
+  font-weight: 500;
+  width: 80%;
+  margin: auto;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+}
+
+.game-week {
+  background-color: var(--smokeyGrayFaded);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+
+.gameday-label {
+  border-top: 1px solid black;
+  /* font-weight: bold; */
+  padding: 0.25rem 0;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.game-pods {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.game-pod {
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  background: #f8f8f8;
+  padding: 1rem;
+  margin: 0.5rem;
+  max-width: 330px;
+}
+.game-pod tr {
+  /* height: 2rem; */
+  /* margin-bottom: 1rem; */
+}
+
+.game-pod th {
+  font-weight: initial;
+}
+
+.time {
+  position: absolute;
+  font-size: 0.8rem;
+}
+
+.rank {
+  font-size: 0.75rem;
+}
+
+.logo {
+  padding: 0 0.5rem;
+}
+.logo > img {
+  width: 1rem;
+  height: auto;
+}
+.name {
+  padding: 0.25rem;
+}
+.score,
+.spread,
+.total {
+  text-align: center;
+}
+
+.rank {
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+}
+.logo {
+  min-width: 2rem;
+  max-width: 2rem;
+}
+.name {
+  min-width: 4rem;
+  max-width: 4rem;
+}
+.score {
+  min-width: 3rem;
+  max-width: 3rem;
+}
+.spacer {
+  min-width: 1rem;
+  max-width: 1rem;
+}
+
+.spread,
+.total {
+  font-size: 0.75rem;
+}
+
+.odds {
+  width: 3rem;
+  box-shadow: rgb(0 0 0 / 0.2) 0px 1px 4px;
+  border-radius: 0.25rem;
+  font-weight: normal;
+  width: 44px;
+  max-width: 44px;
+  min-width: 44px;
+}
+
+td.spread.win,
+td.total.win {
+  box-shadow: rgb(0 195 90 / 0.3) 0px 1px 4px;
+  color: rgb(0 195 90);
+  font-weight: bold;
+}
+td.spread.loss,
+td.total.loss {
+  box-shadow: none;
+  color: transparent;
+}
+
+tr[data-winner = "true"] {
+  font-weight: bold;
+}
