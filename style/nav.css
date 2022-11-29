@@ -13,15 +13,12 @@
   justify-content: center;
   align-items: center;
   width: 10%;
-  /* flex-grow: 1; */
-  color: var(--chalkWhite);
-  /* font-size: 1.1rem; */
+  color: white;
   font-weight: 200;
   border-radius: 3px;
   margin: 2px 0;
   padding: 0 0.5rem 3px 0.5rem;
   cursor: pointer;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -31,7 +28,6 @@
   background-color: rgb(255 255 255 / 0.6);
 }
 .navlink.current {
-  color: white;
   font-weight: initial;
   background-color: var(--bigOrange);
 }

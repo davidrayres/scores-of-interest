@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <head>
   <title>Scores of Interest</title>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-  <script src="script/app.js"></script>
-  <script src="script/events.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" defer></script>
+  <script src="script/app.js" defer></script>
+  <script src="script/events.js" defer></script>
+  <!-- ----------------------------------------------------- -->
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/nav.css">
   <link rel="stylesheet" href="style/scores.css">
@@ -85,18 +86,20 @@
     </div>
   </div>
 
-  <div id="PageTitle">"Some Scores of Interest"...</div>
+  <div id="PageTitle">
+    <div id="PageLabel">"Some Scores of Interest"...</div>
+    <div id="WeekBtnContainer"></div>
+  </div>
 
 </section>
 
 
 <section id="MainContent">
-  <div id="PageBody">
-    <div id="ScoresNote">
-      <div>WEEKS</div>
-      <div id="WeeklyScoreNav"></div>
-    </div>
-    <div id="Scores"></div>
+  <!-- <div id="ScoresNav">
+    <div>WEEKS</div>
+  </div> -->
+  <div id="ScoresContainer">
+    <div id="WeekLabel"></div>
   </div>
 </section>  
 
