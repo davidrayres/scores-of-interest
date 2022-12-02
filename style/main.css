@@ -1,7 +1,4 @@
-*,
-*::before,
-*::after {
-  border-collapse: collapse;
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,20 +16,50 @@
 
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   font-family: Geogrotesque, Segoe UI, Helvetica, Arial, sans-serif;
   background: #f8f8f8;
+}
+
+#MainHeader {
+  height: 40px;
 }
 
 #PageHead {
   display: flex;
   align-items: center;
+  height: 100%;
   width: 100%;
-  height: 40px;
-  position: fixed;
-  top: 0;
   background-color: var(--smokeyGray);
+  max-width: 100vw;
+}
+
+#MainContent {
+  margin-top: 10px;
+  width: 80%;
+  margin: 1rem auto;
+  margin-bottom: 3rem;
+  background: rgb(240, 240, 240);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  #MainContent {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+#PageTitle {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 20px 0px;
+  height: fit-content;
+}
+
+#PageLabel {
+  font-size: 1.75rem;
+  font-style: italic;
 }
 
 #PageFoot {
@@ -41,20 +68,4 @@ body {
   width: 100%;
   height: 20px;
   background-color: gainsboro;
-} 
-
-#PageTitle {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  margin-top: 40px;
-  margin-bottom: 1rem;
-  padding: 0 1rem;
-}
-
-#PageLabel {
-  font-size: 1.75rem;
-  font-style: italic;
-
 }

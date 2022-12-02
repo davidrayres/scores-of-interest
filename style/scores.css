@@ -1,19 +1,9 @@
-/* #ScoresNav {
-  text-align: center;
-  font-weight: 500;
-  width: 80%;
-  margin: auto;
-  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
-} */
-
 #WeekBtnContainer {
   display: flex;
+  flex-wrap: wrap;
   height: 100%;
-align-items: center;
-margin-left: auto;
-  /* justify-content: center; */
-  /* font-weight: initial; */
-  /* margin-top: .5rem; */
+  align-items: center;
+  margin-left: auto;
 }
 
 .week-btn {
@@ -40,14 +30,6 @@ margin-left: auto;
   color: white;
 }
 
-#ScoresContainer {
-  width: 80%;
-  margin: 1rem auto;
-  margin-bottom: 3rem;
-  background: rgb(240, 240, 240);
-  padding: 2rem;
-  border-radius: 0.5rem;
-}
 
 #WeekLabel {
   background-color: var(--smokeyGrayFaded);
@@ -67,7 +49,8 @@ margin-left: auto;
 .game-pods {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: .5rem
+  gap: 0.5rem;
+  overflow-x: scroll;
 }
 
 .game-pod {
@@ -75,7 +58,7 @@ margin-left: auto;
   border-radius: 0.25rem;
   background: #f8f8f8;
   padding: 1rem;
-  max-width: 300px;
+  width: fit-content;
 }
 
 .game-pod th {
@@ -83,7 +66,6 @@ margin-left: auto;
 }
 
 .time {
-  position: absolute;
   font-size: 0.8rem;
 }
 
@@ -155,6 +137,6 @@ td.total.loss {
   color: transparent;
 }
 
-tr[data-winner='true'] {
+tr[data-winner="true"] {
   font-weight: bold;
 }
