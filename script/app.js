@@ -1,4 +1,3 @@
-
 // ESPN ENDPOINTS ==============================================
 
 const EndPoints = {
@@ -77,8 +76,6 @@ const getNFLGames = async () => {
 }
 
 // STAGE COMPONENTS ============================================
-// =============================================================
-// =============================================================
 
 const loadWeekNav = (calendarData, weekNum) => {
   const weekBtnContainer = document.getElementById('WeekBtnContainer')
@@ -102,16 +99,20 @@ const loadNflGames = (calendarData, gameData, weekNum) => {
   const weekLabel = document.getElementById('WeekLabel')
 
   // remove existing scores...
-  existingScores.forEach(x => x.remove())
+  existingScores.forEach((x) => x.remove())
 
   //set week label...
   weekLabel.innerHTML = `WEEK ${weekNum + 1}`
 
   //filter calendar data to current week...
-  const gameDays = calendarData.eventDate.dates.filter(
-    (date) => date >= selectedWeek.startDate && date <= selectedWeek.endDate
-  )
-  console.log(gameDays)
+  const gameDays = calendarData.eventDate.dates.filter((date) => {
+    localGameDate = new Date(date)
+    localWkStartDate = new Date(selectedWeek.startDate)
+    localWkEndDate = new Date(selectedWeek.endDate)
+    return localGameDate >= localWkStartDate && localGameDate <= localWkEndDate
+    // return localGameDate >= selectedWeek.startDate && date <= selectedWeek.endDate
+  })
+  console.log(new Date(gameDays))
   // construct containers for each day .............................
   gameDays.forEach((day, index) => {
     //construct game day container...
@@ -192,8 +193,6 @@ const loadNflGames = (calendarData, gameData, weekNum) => {
 }
 
 // CONSTRUCT PAGE ==============================================
-// =============================================================
-// =============================================================
 
 const constructScores = async () => {
   const NFLdata = {}

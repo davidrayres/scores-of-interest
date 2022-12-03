@@ -10,7 +10,7 @@
   display: flex;
   height: 100%;
 align-items: center;
-margin-left: auto;
+margin: auto;
   /* justify-content: center; */
   /* font-weight: initial; */
   /* margin-top: .5rem; */
@@ -42,7 +42,7 @@ margin-left: auto;
 
 #ScoresContainer {
   width: 80%;
-  margin: 1rem auto;
+  margin: auto;
   margin-bottom: 3rem;
   background: rgb(240, 240, 240);
   padding: 2rem;
