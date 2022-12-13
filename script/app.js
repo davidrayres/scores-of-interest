@@ -1,4 +1,3 @@
-
 // ESPN ENDPOINTS ==============================================
 
 const EndPoints = {
@@ -22,58 +21,50 @@ const EndPoints = {
 // GET DATA ====================================================
 
 const getNFLTeams = async () => {
-  //********** ERROR CATCH??? **************** */
   const resp = await fetch(EndPoints.NFL.teams)
   const data = await resp.json()
-  console.log('NFL ENDPOINT - Teams', data)
   return data.sports[0].leagues[0].teams
 }
 
-// -------------------------------------------------------------
-
 const getNflCalendar = async () => {
   const resp = await fetch(EndPoints.NFL.calendar)
-  const data = await resp.json()
-  console.log('NFL ENDPOINT - Calendar', data)
-  return data
+  return resp.json()
 }
-
-// -------------------------------------------------------------
 
 const getNFLGames = async () => {
   const resp = await fetch(EndPoints.NFL.games)
   const data = await resp.json()
-  console.log('NFL ENDPOINT - Games', data)
 
-  return data.events.map((game) => {
-    const { id, date, status, shortName: name, week, competitions } = game
-    const [homeTeam, awayTeam] = competitions[0].competitors
-    return {
-      id,
-      date,
-      time: status.type.shortDetail,
-      status: status.type.description,
-      name,
-      week: week.number,
-      // favorite: ...,
-      // line: ...,
-      // total: ...,
-      // ----------
-      // homeTeamRank: ...,
-      homeTeamLogo: homeTeam.team.logo,
-      homeTeamName: homeTeam.team.abbreviation,
-      homeTeamRecord: homeTeam.records[0].summary,
-      homeTeamScore: homeTeam.score,
-      homeTeamWin: homeTeam.winner,
-      // ----------
-      // homeTeamRank:
-      awayTeamLogo: awayTeam.team.logo,
-      awayTeamName: awayTeam.team.abbreviation,
-      awayTeamRecord: awayTeam.records[0].summary,
-      awayTeamScore: awayTeam.score,
-      awayTeamWin: awayTeam.winner,
+  return data.events.map(
+    ({ id, date, status, shortName: name, week, competitions }) => {
+      const [homeTeam, awayTeam] = competitions[0].competitors
+      return {
+        id,
+        date,
+        time: status.type.shortDetail,
+        status: status.type.description,
+        name,
+        week: week.number,
+        // favorite: ...,
+        // line: ...,
+        // total: ...,
+        // ----------
+        // homeTeamRank: ...,
+        homeTeamLogo: homeTeam.team.logo,
+        homeTeamName: homeTeam.team.abbreviation,
+        homeTeamRecord: homeTeam.records[0].summary,
+        homeTeamScore: homeTeam.score,
+        homeTeamWin: homeTeam.winner,
+        // ----------
+        // homeTeamRank:
+        awayTeamLogo: awayTeam.team.logo,
+        awayTeamName: awayTeam.team.abbreviation,
+        awayTeamRecord: awayTeam.records[0].summary,
+        awayTeamScore: awayTeam.score,
+        awayTeamWin: awayTeam.winner,
+      }
     }
-  })
+  )
 }
 
 // STAGE COMPONENTS ============================================
@@ -102,7 +93,7 @@ const loadNflGames = (calendarData, gameData, weekNum) => {
   const weekLabel = document.getElementById('WeekLabel')
 
   // remove existing scores...
-  existingScores.forEach(x => x.remove())
+  existingScores.forEach((x) => x.remove())
 
   //set week label...
   weekLabel.innerHTML = `WEEK ${weekNum + 1}`
@@ -111,7 +102,7 @@ const loadNflGames = (calendarData, gameData, weekNum) => {
   const gameDays = calendarData.eventDate.dates.filter(
     (date) => date >= selectedWeek.startDate && date <= selectedWeek.endDate
   )
-  console.log(gameDays)
+
   // construct containers for each day .............................
   gameDays.forEach((day, index) => {
     //construct game day container...
@@ -134,9 +125,9 @@ const loadNflGames = (calendarData, gameData, weekNum) => {
     // insert games...
     // filter game data to current week...
     // ########## figure out how to pick thursdays...given GMT timezone
-    const games = gameData.filter((game) => {
-      return game.date.split('T')[0] === day.split('T')[0]
-    })
+    const games = gameData.filter(
+      (game) => game.date.split('T')[0] === day.split('T')[0]
+    )
 
     games.forEach((game) => {
       //construct game pod...
@@ -196,28 +187,27 @@ const loadNflGames = (calendarData, gameData, weekNum) => {
 // =============================================================
 
 const constructScores = async () => {
-  const NFLdata = {}
-  let weekNum = 0
+  const nflData = await Promise.all([
+    getNFLTeams(),
+    getNflCalendar(),
+    getNFLGames(),
+  ])
+  const [, nflCalendar, nflGames] = nflData
 
-  NFLdata.teams = await getNFLTeams()
-  NFLdata.calendar = await getNflCalendar()
-  NFLdata.games = await getNFLGames()
-  console.log('NFLdata', NFLdata)
-
-  loadWeekNav(NFLdata.calendar, weekNum)
-  loadNflGames(NFLdata.calendar, NFLdata.games, weekNum)
+  loadWeekNav(nflCalendar, 0)
+  loadNflGames(nflCalendar, nflGames, 0)
 
   const weekButtons = document.querySelectorAll('.week-btn')
 
   weekButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
-      weekNum = parseInt(e.target.innerText) - 1
+      const weekNum = parseInt(e.target.innerText) - 1
       document
         .querySelector('#WeekBtnContainer .current')
         .classList.remove('current')
       button.classList.add('current')
 
-      loadNflGames(NFLdata.calendar, NFLdata.games, weekNum)
+      loadNflGames(nflCalendar, nflGames, weekNum)
     })
   })
 }

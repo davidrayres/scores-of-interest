@@ -62,9 +62,11 @@ body {
   font-style: italic;
 }
 
+#MainFooter {
+  height: 50px;
+}
+
 #PageFoot {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   height: 20px;
   background-color: gainsboro;
