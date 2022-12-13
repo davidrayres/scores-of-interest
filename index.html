@@ -1,138 +1,114 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Scores of Interest</title>
-    <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"
-      defer
-    ></script>
-    <script src="script/app.js" defer></script>
-    <script src="script/events.js" defer></script>
-    <!-- ----------------------------------------------------- -->
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="stylesheet" href="style/nav.css" />
-    <link rel="stylesheet" href="style/scores.css" />
-  </head>
+<head>
+  <title>Scores of Interest</title>
+  <link rel="icon" href="images/logo.png" />
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" defer></script>
+  <script src="script/app.js" defer></script>
+  <script src="script/events.js" defer></script>
+  <!-- ----------------------------------------------------- -->
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/nav.css">
+  <link rel="stylesheet" href="style/scores.css">
+</head>
 
-  <body>
-    <section id="MainHeader">
-      <div id="PageHead">
-        <div id="SouthEndzone">
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-        </div>
+<body>
+<section id="MainHeader">
 
-        <div id="NavLinks">
-          <div class="navlink current">Scores</div>
-          <div class="yardline"></div>
-          <div class="navlink">Schedules</div>
-          <div class="yardline"></div>
-          <div class="navlink">Standings</div>
-          <div class="yardline"></div>
-          <div class="navlink">...</div>
-          <div class="yardline"></div>
-          <div class="navlink"></div>
-          <div class="yardline"></div>
-          <div class="navlink"></div>
-          <div class="yardline"></div>
-          <div class="navlink"></div>
-          <div class="yardline"></div>
-          <div class="navlink"></div>
-          <div class="yardline"></div>
-          <div class="navlink"></div>
-          <div class="yardline"></div>
-          <div class="navlink"></div>
-        </div>
+  <div id="PageHead">
 
-        <div id="NorthEndzone">
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-          </div>
-          <div id="checkerboard">
-            <div class="sqr org"></div>
-            <div class="sqr wht"></div>
-            <div class="sqr org"></div>
-          </div>
-        </div>
+    <div id="SouthEndzone">
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
       </div>
-
-      <div id="PageTitle">
-        <!-- <div id="PageLabel">"Some Scores of Interest"...</div> -->
-        <div id="WeekBtnContainer"></div>
+      <div id="checkerboard">
+        <div class="sqr wht"></div><div class="sqr org"></div><div class="sqr wht"></div>
       </div>
-    </section>
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr wht"></div><div class="sqr org"></div><div class="sqr wht"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr wht"></div><div class="sqr org"></div><div class="sqr wht"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+    </div>
 
-    <section id="MainContent">
-      <!-- <div id="ScoresNav">
+    <div id="NavLinks">
+      <div class="navlink current">Scores</div>
+      <div class="yardline"></div>
+      <div class="navlink">Schedules</div>
+      <div class="yardline"></div>
+      <div class="navlink">Standings</div>
+      <div class="yardline"></div>
+      <div class="navlink">...</div>
+      <div class="yardline"></div>
+      <div class="navlink"></div>
+      <div class="yardline"></div>
+      <div class="navlink"></div>
+      <div class="yardline"></div>
+      <div class="navlink"></div>
+      <div class="yardline"></div>
+      <div class="navlink"></div>
+      <div class="yardline"></div>
+      <div class="navlink"></div>
+      <div class="yardline"></div>
+      <div class="navlink"></div>
+    </div>
+
+    <div id="NorthEndzone">
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr wht"></div><div class="sqr org"></div><div class="sqr wht"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr wht"></div><div class="sqr org"></div><div class="sqr wht"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr wht"></div><div class="sqr org"></div><div class="sqr wht"></div>
+      </div>
+      <div id="checkerboard">
+        <div class="sqr org"></div><div class="sqr wht"></div><div class="sqr org"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="PageTitle">
+    <!-- <div id="PageLabel">"Some Scores of Interest"...</div> -->
+    <div id="WeekBtnContainer"></div>
+  </div>
+
+</section>
+
+
+<section id="MainContent">
+  <!-- <div id="ScoresNav">
     <div>WEEKS</div>
   </div> -->
-      <div id="ScoresContainer">
-        <div id="WeekLabel"></div>
-      </div>
-    </section>
+  <div id="ScoresContainer">
+    <div id="WeekLabel"></div>
+  </div>
+</section>  
 
-    <section id="MainFooter">
-      <div id="PageFoot"></div>
-    </section>
-  </body>
+
+<section id="MainFooter">
+  <div id="PageFoot"></div>
+</section>
+
+</body>
 </html>
+
